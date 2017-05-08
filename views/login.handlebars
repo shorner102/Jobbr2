@@ -1,0 +1,35 @@
+<section id="login-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-wrap">
+                    <h1 class="logintxt">Welcome to Jobbr.</h1>
+                    <h2 class="longintxt2">A new life starts with us!</h2>
+                    <a href='/signup'>Sign up Here</a>
+                    <br>
+                    <form class="serverform" method="post" id="login">
+                        <div class="form-group">
+                            <label for="email" class="sr-only">email</label>
+                            <input type="text" name="username" id="email" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="sr-only">Password</label>
+                            <input type="password" name="password" id="passwrod" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" id="btn-login" class="btn btn-custom">Log In</button>
+                        </div>
+                        {{#if error}}
+                        <div class="form-group">
+                            <div class="alert alert-danger">
+                                {{error}}
+                            </div>
+                        </div>
+                        {{/if}}
+                    </form> 
+          
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

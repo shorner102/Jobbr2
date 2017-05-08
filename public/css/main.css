@@ -1,0 +1,39 @@
+* {
+    background-color: paleturquoise;
+    font-family: 'Permanent Marker', cursive;    
+    color: #ffd1dc;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.logintxt {
+  font-size: 7.5rem;
+  position: fixed;
+  left: .5rem;
+  top: 0;
+}
+
+.logintxt2{
+  font-size: 5rem;
+  position: fixed;
+  left: 11.1rem;
+  top: 9rem;
+}
+
+#login-form{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  letter-spacing: 17.5rem;
+}
+
+.form-control{
+  letter-spacing: .3rem;
+  text-align: right;
+}
+
+footer {
+    font-size: 1.2rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}

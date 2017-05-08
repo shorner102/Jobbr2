@@ -1,0 +1,32 @@
+{
+  "name": "jobbr-master",
+  "version": "1.0.0",
+  "description": "A simple swipe-based Job Matching site",
+  "main": "app.js",
+  "scripts": {
+    "seed": "node ./tasks/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Team Jobbr",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "compat": "^1.0.4",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.2",
+    "handlebars": "^4.0.6",
+    "mongodb": "^2.2.26",
+    "node-uuid": "^1.4.8",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "uuid": "^3.0.1"
+  }
+}
