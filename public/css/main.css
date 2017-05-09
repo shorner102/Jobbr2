@@ -1,10 +1,10 @@
-* {
+/** {
     background-color: paleturquoise;
     font-family: 'Permanent Marker', cursive;    
     color: #ffd1dc;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
+*/
 .logintxt {
   font-size: 7.5rem;
   position: fixed;
@@ -38,3 +38,16 @@ footer {
     bottom: 0;
     right: 0;
 }
+
+.resume {
+  padding-bottom: 18px; 
+}
+
+input, select {
+  display: block;
+  float: right;
+  margin: 2px;
+  box-sizing: border-box;
+  text-align: right;
+}
+
