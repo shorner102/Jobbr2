@@ -3,8 +3,21 @@ const mongoCollections = require("../config/mongoCollections");
 const posts = mongoCollections.posts;
 const uuid = require('node-uuid');
 
-
 let exportedMethods = {
+  getNext(id){
+     return  posts().then((postCollection)=>{
+        var count = 0;
+        var p = postCollection.find();
+        while(count < id){
+            p.next();
+            count = count + 1;
+        }
+       //console.log(p);
+          return p.next();
+        
+      });
+    
+  },
   addPost(jobtitle, company, formattedLocation, snippet, url){
       
         if (!jobtitle) 
