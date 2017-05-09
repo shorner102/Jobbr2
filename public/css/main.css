@@ -17,6 +17,7 @@
   position: fixed;
   left: 11.1rem;
   top: 9rem;
+  margin-bottom: 10px;
 }
 
 #login-form{
