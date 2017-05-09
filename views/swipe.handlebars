@@ -5,43 +5,39 @@
                 <div class="login-panel panel-info">
                     <div class="body">
                         <div class="row">
-                            <div class="job-title">
-                                <div class="btn-container">
-                                    <label for="thumbsdown" class="sr-only">Thumbs Down</label>
-                                    <button type="button" id="thumbsdown" class="btn btn-default btn-sm">
-                                        <span class="glyphicon glyphicon-thumbs-down"></span>
-                                    </button>
-                                </div>
-                                <div class="table-container">
-                                    <table class="table job-post-info">
-                                        <tr> 
-                                            <th></th>
-                                            <th>{{jobtitle}}</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Company</td>
-                                            <td>{{company}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Location</td>
-                                            <td>{{formattedLocation}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Job Info</td>
-                                            <td>{{snippet}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Apply Here!</td>
-                                            <td>{{url}}</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="btn-container">
-                                    <label for="thumbsup" class="sr-only">Thumbs Up</label>
-                                    <button type="button" id="thumbsup" class="btn btn-default btn-sm">
-                                        <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    </button>
-                                </div>
+                            <div class="col-md-9 col-lg-9">
+                              <form class="like" method="post" id="likeBtn">
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                                </button>
+                              </form>
+                                <table class="table job-post">
+                                    <tr> 
+                                        <th></th>
+                                        <th>{{jobtitle}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Company</td>
+                                        <td>{{company}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>{{formattedLocation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job Info</td>
+                                        <td>{{snippet}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apply Here!</td>
+                                        <td>{{url}}</td>
+                                    </tr>
+                                </table>
+                              <form class="dislike" method="post" id="dislikeBtn">
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                                </button>
+                              </form>
                             </div>
                         </div>
                     </div>

@@ -11,8 +11,7 @@ router.get("/", (req, res) => {
 
 //post
 router.post("/", passport.authenticate('local', {failureRedirect: '/login', failureFlash: true }), (req, res) => {
-        res.redirect("/private");
+        res.redirect("/swipe");
 });
 
 module.exports = router;
-
