@@ -11,7 +11,15 @@ dbConnection().then(db => {
     }).then(()=>{
       
         return posts.addPost("Software Engineer", "Next Century", "Columbia, MD", "Create software that changes lives", "http://ncc.com");
-    }).then((post)=>{
+    }).then(()=>{
+      return posts.addPost("Teacher", "Clarksville Elementary", "Clarksville, MD", "Early childhood education", "http://teach.com");
+      
+    }).then(()=>{
+      return posts.addPost("Garbage Man", "Waste Management", "New York, NY", "Collect Garbage from the streets", "http://wm.net");
+      
+    })
+    
+    .then((post)=>{
       
       console.log(post);
     })

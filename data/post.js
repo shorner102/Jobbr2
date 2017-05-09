@@ -39,7 +39,13 @@ let exportedMethods = {
                 });
         });
     },
+    getAllPosts(){
+      return posts().then((postCollection)=>{
+        return postCollection.find({}).toArray();
+        
+      });
       
+    },
 // getUserById
   getPostById(id) {
         if (!id) 
@@ -49,6 +55,7 @@ let exportedMethods = {
             return postCollection.findOne({_id: id});
         });
     },
+  
   removePost(id){
       if(!id)
         return Promise.reject("You must provide an id to search for");

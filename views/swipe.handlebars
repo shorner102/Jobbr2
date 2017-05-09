@@ -9,7 +9,28 @@
                                 <button type="button" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-up"></span>
                                 </button>
-                                {{!--how to display job postings--}}
+                                <table class="table job-post">
+                                    <tr> 
+                                        <th></th>
+                                        <th>{{jobtitle}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Company</td>
+                                        <td>{{company}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>{{formattedLocation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job Info</td>
+                                        <td>{{snippet}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apply Here!</td>
+                                        <td>{{url}}</td>
+                                    </tr>
+                                </table>
                                 <button type="button" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-down"></span>
                                 </button>
