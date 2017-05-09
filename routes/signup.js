@@ -15,7 +15,7 @@ router.post("/",  function(req, res){
     
      userData.addUser(req.body.firstName, req.body.lastName, req.body.email, hash, req.body.location, req.body.skills, req.body.experience, req.body.field)
      .then((user)=>{
-       res.redirect("/private");
+       res.redirect("/swipe");
        
      });
   });

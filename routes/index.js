@@ -1,6 +1,7 @@
 const loginRoutes = require("./login");
 const privateRoutes = require("./private");
 const signupRoutes = require("./signup");
+const swipeRoutes = require("./swipe");
 const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 
@@ -9,6 +10,7 @@ const constructorMethod = (app) => {
     app.use("/login", loginRoutes);
     app.use("/signup", signupRoutes);
     app.use("/private", privateRoutes);
+    app.use("/swipe", swipeRoutes);
 
     app.use("*", require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
         // if the login information is valid, redirect to private
