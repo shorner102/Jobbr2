@@ -6,9 +6,11 @@
                     <div class="body">
                         <div class="row">
                             <div class="col-md-9 col-lg-9">
-                                <button type="button" class="btn btn-default btn-sm">
+                              <form class="like" method="post" id="likeBtn">
+                                <button type="submit" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-up"></span>
                                 </button>
+                              </form>
                                 <table class="table job-post">
                                     <tr> 
                                         <th></th>
@@ -31,9 +33,11 @@
                                         <td>{{url}}</td>
                                     </tr>
                                 </table>
-                                <button type="button" class="btn btn-default btn-sm">
+                              <form class="dislike" method="post" id="dislikeBtn">
+                                <button type="submit" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-down"></span>
                                 </button>
+                              </form>
                             </div>
                         </div>
                     </div>
