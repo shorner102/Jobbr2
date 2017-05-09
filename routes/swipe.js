@@ -3,12 +3,14 @@ const passport = require('passport');
 const router = express.Router();
 const data = require("../data");
 const postData = data.post;
+const userData = data.user;
 var id = 0;
+var u;
 
 
 
 router.get('/', require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
-  
+  u = req.user;
   postData.getFirstPost().then((post)=>{
      res.render("swipe", post);
   })
@@ -17,12 +19,20 @@ router.get('/', require('connect-ensure-login').ensureLoggedIn(), (req, res) => 
 });
 
 router.post('/', function(req,res){
-  console.log(id);
+ if(req.body.vote == "like"){
+   postData.findPost(id).then((post)=>{
+    postData.addLikedPost(post._id, u._id).then((user)=>{
+      console.log(user);
+    });
+   });
+   
+ }
   id = id + 1;
-  postData.getNext(id).then((post)=>{
+  postData.findPost(id).then((post)=>{
     res.render("swipe", post);
     
   })
   
 });
+
 module.exports = router;

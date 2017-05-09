@@ -7,7 +7,7 @@
                         <div class="row">
                             <div class="col-md-9 col-lg-9">
                               <form class="like" method="post" id="likeBtn">
-                                <button type="submit" class="btn btn-default btn-sm">
+                                <button type="submit" name="vote" value = "like" onsubmit="like()" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-up"></span>
                                 </button>
                               </form>
@@ -34,7 +34,7 @@
                                     </tr>
                                 </table>
                               <form class="dislike" method="post" id="dislikeBtn">
-                                <button type="submit" class="btn btn-default btn-sm">
+                                <button type="submit" name="vote" value = "dislike" onsubmit="dislike()"class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-down"></span>
                                 </button>
                               </form>

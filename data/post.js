@@ -1,14 +1,31 @@
 
 const mongoCollections = require("../config/mongoCollections");
 const posts = mongoCollections.posts;
+const users = mongoCollections.users;
 const uuid = require('node-uuid');
 
+const userData = require("./user");
+
 let exportedMethods = {
-  getNext(id){
+  findPost(id){
      return  posts().then((postCollection)=>{
         var count = 0;
         var p = postCollection.find();
         while(count < id){
+            p.next();
+            count = count + 1;
+        }
+       //console.log(p);
+          return p.next();
+        
+      });
+    
+  },  
+  getCurrent(id){
+     return  posts().then((postCollection)=>{
+        var count = 0;
+        var p = postCollection.find();
+        while(count < id - 1){
             p.next();
             count = count + 1;
         }
@@ -86,6 +103,20 @@ let exportedMethods = {
         });
         
       });
+    
+  },
+  addLikedPost(postId, userId){
+    return users().then((userCollection)=>{
+      return userData.getUserById(userId).then((userThatLiked)=>{
+        userThatLiked.likedPosts.push(postId);
+        var rec = {$set:userThatLiked};
+        return userCollection.updateOne({_id:userId}, rec).then((result)=>{
+          return postId;
+        })
+        
+      })
+      
+    })
     
   }
 

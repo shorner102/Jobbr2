@@ -73,8 +73,44 @@ let exportedMethods = {
             });
         });
 
-        
-
     }
+/*  ,
+  addLikedPost(postId, userId){
+    return users().then((userCollection)=>{
+      return this.getUserbyId(userId).then((userThatLiked)=>{
+        userThatLiked.likedPosts.push(postId);
+        var rec = {$set:userThatLiked};
+        return userCollection.updateOne({_id:userid}, rec).then((result)=>{
+          return postId;
+        })
+        
+      })
+      
+    })
+    
+  }*/
+  
+  
+  
+  /*
+        addComment(recipeId, poster, comment) {
+        return recipesColl().then((recipeCollection) => {
+          let newComment = {
+                  poster: poster,
+                  comment: comment,
+                  _id: uuid.v4()
+              };
+          return recipes.getRecipeById(recipeId).then((commentedRecipe) =>{
+            commentedRecipe.comments.push(newComment);
+            var rec = {$set:commentedRecipe};
+            return recipeCollection.updateOne({ _id: recipeId }, rec).then((result) => {
+              return newComment;
+              });
+            
+          });
+             
+        });
+    },
+    */
 }
 module.exports = exportedMethods;
