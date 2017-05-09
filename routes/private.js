@@ -7,7 +7,8 @@ const router = express.Router();
 
 // get
 router.get("/", require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
-    res.render('private', req.user);
+    //res.render('private', req.user);
+     res.render("swipe.handlebars");
 });
 
 module.exports = router;

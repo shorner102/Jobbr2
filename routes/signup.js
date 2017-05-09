@@ -10,9 +10,8 @@ router.get('/', function(req, res){
 });
 
 router.post("/",  function(req, res){
-
+  
   bcrypt.hash(req.body.pwd1, 10, function(err, hash) {
-        // Store hash in your password DB.
     
      userData.addUser(req.body.firstName, req.body.lastName, req.body.email, hash, req.body.location, req.body.skills, req.body.experience, req.body.field)
      .then((user)=>{
