@@ -55,7 +55,13 @@ let exportedMethods = {
             return postCollection.findOne({_id: id});
         });
     },
-  
+  getFirstPost(){
+    return posts().then((postCollection)=>{
+      return postCollection.findOne();
+      
+    })
+    
+  },
   removePost(id){
       if(!id)
         return Promise.reject("You must provide an id to search for");
