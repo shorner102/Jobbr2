@@ -1,53 +1,155 @@
-/** {
-    background-color: paleturquoise;
-    font-family: 'Permanent Marker', cursive;    
-    color: #ffd1dc;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-*/
-.logintxt {
-  font-size: 7.5rem;
-  position: fixed;
-  left: .5rem;
-  top: 0;
+body{
+    background-color: #e6e6e6;
+	  font-family: "Amaranth";
 }
 
-.logintxt2{
-  font-size: 5rem;
-  position: fixed;
-  left: 11.1rem;
-  top: 9rem;
-  margin-bottom: 10px;
-}
 
 #login-form{
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  letter-spacing: 17.5rem;
+    background-color: #e6e6e6;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    letter-spacing: 17.5rem;
 }
 
+/* the input */
 .form-control{
-  letter-spacing: .3rem;
-  text-align: right;
+    letter-spacing: .3rem;
+    text-align: right;
+    background-color: #f2f2f2;
 }
 
 footer {
     font-size: 1.2rem;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+    margin-top: 10px;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+.btn{
+	  background-color: #a6a6a6;
+    border: solid-thin;
+    border-radius: 5px;
+	  font-family: "Arial";
+    color: black;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#btn-signup {
+    float:right;
+}
+
+#location{
+	  right: 0;
+}
+
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black
+}
+
+/* mouse over link */
+a:hover {
+    color: #171919;
+}
+
+/* selected link */
+a:active {
+    color: #17192F;
+}
+
+#thumbsdown{
+	  float:left;
+}
+
+#thumbsup{
+	  float:right;
 }
 
 .resume {
-  padding-bottom: 18px; 
+    padding-bottom: 18px; 
 }
 
 input, select {
-  display: block;
-  float: right;
-  margin: 2px;
-  box-sizing: border-box;
-  text-align: right;
+    display: block;
+    float: right;
+    margin: 2px;
+    box-sizing: border-box;
+    text-align: right;
 }
 
+#btn-login {
+    float:right;
+    margin-bottom: 10px;
+}
+
+.heading-signup {
+    text-align: center;
+}
+
+select {
+  /* styling */
+  text-align: right;
+  background-color: white;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  /* reset */
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, #ccc 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #ccc 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  outline: 0;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
