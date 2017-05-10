@@ -9,7 +9,8 @@ dbConnection().then(db => {
     }).then((db) => {
         return users.addUser("Harry", "Potter", "lemon", "$2a$06$SagJO.YW8T7c7Fzh.0VaIuYaAetQKsU2PbmI.VzzjjfWKA8yyLbQe", "Hogwarts", "Casting Spells", "Defeating Voldemort", "Wizardry");
     }).then(()=>{
-      
+        return users.addUser("admin", "admin", "admin@jobbr.job", "admin", "admin", "admin", "admin", "admin");
+    }).then(()=>{
         return posts.addPost("Software Engineer", "Next Century", "Columbia, MD", "Create software that changes lives", "http://ncc.com");
     }).then(()=>{
       return posts.addPost("Teacher", "Clarksville Elementary", "Clarksville, MD", "Early childhood education", "http://teach.com");

@@ -1,0 +1,42 @@
+<section class="view-matches">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="login-panel panel-info">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-md-9 col-lg-9">
+                                <table class="table matches">
+                                    <tr> 
+                                        <th></th>
+                                        <th>{{jobtitle}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Company</td>
+                                        <td>{{company}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>{{formattedLocation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job Info</td>
+                                        <td>{{snippet}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apply Here!</td>
+                                        <td>{{url}}</td>
+                                    </tr>
+                                </table>
+                                <nav class="navigation-matches">
+                                    <button type="submit" name="navig" id="nextMatchBtn" value="nextM" onsubmit="nextM()" class="btn btn-default btn-sm">Next Match</button>
+                                    <button type="submit" name="navig" id="prevMatchBtn" value="prevM" onsubmit="prevM()" class="btn btn-default btn-sm">Prev Match</button>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
