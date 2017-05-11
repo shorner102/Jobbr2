@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const Strategy = require('passport-local');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt-nodejs');
 const exphbs = require('express-handlebars');
 const Handlebars = require('handlebars');
 
@@ -64,4 +64,3 @@ app.listen(3000, () => {
     console.log("We've now got a server!");
     console.log("Your routes will be running on http://localhost:3000");
 });
-

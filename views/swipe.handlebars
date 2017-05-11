@@ -7,39 +7,38 @@
                         <div class="row">
                             <div class="col-md-9 col-lg-9">
                               <form class="like" method="post" id="likeBtn">
-                                <button type="submit" name="vote" value = "like" onsubmit="like()" class="btn btn-default btn-sm">
+                                <button type="submit" name="vote" value = "like" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-up"></span>
                                 </button>
                               </form>
                                 <table class="table job-post">
-                                    <tr> 
+                                    <tr>
                                         <th></th>
-                                        <th>{{jobtitle}}</th>
+                                        <th id="jobtitle"></th>
                                     </tr>
                                     <tr>
                                         <td>Company</td>
-                                        <td>{{company}}</td>
+                                        <td id="company"></td>
                                     </tr>
                                     <tr>
                                         <td>Location</td>
-                                        <td>{{formattedLocation}}</td>
+                                        <td id="location"></td>
                                     </tr>
                                     <tr>
                                         <td>Job Info</td>
-                                        <td>{{snippet}}</td>
+                                        <td id="snippet"></td>
                                     </tr>
                                     <tr>
-                                        <td>Apply Here!</td>
-                                        <td>{{url}}</td>
+                                        <td id="weblink"><a href="" id="link">Apply Here!</a></td>
                                     </tr>
                                 </table>
                               <form class="dislike" method="post" id="dislikeBtn">
-                                <button type="submit" name="vote" value = "dislike" onsubmit="dislike()"class="btn btn-default btn-sm">
+                                <button type="submit" name="vote" value = "dislike" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-down"></span>
                                 </button>
                                 <button type="submit" id="btn-signup" class="btn btn-custom"><a href='/match'>View Matches</a></button>
                               </form>
-                              
+
                             </div>
                         </div>
                     </div>
@@ -48,3 +47,4 @@
         </div>
     </div>
 </section>
+<script src="/public/js/jobsearch.js"></script>

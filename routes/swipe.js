@@ -14,8 +14,17 @@ router.get('/', require('connect-ensure-login').ensureLoggedIn(), (req, res) => 
   postData.getFirstPost().then((post)=>{
      res.render("swipe", post);
   })
- 
-  
+
+
+});
+
+router.get('/getjobs', require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
+  u = req.user;
+  postData.getFirstPost().then((post)=>{
+     res.render("swipe", post);
+  })
+
+
 });
 
 router.post('/', function(req,res){
@@ -25,14 +34,14 @@ router.post('/', function(req,res){
       console.log(user);
     });
    });
-   
+
  }
   id = id + 1;
   postData.findPost(id).then((post)=>{
     res.render("swipe", post);
-    
+
   })
-  
+
 });
 
 module.exports = router;

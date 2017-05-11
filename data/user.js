@@ -1,15 +1,15 @@
 
 const mongoCollections = require("../config/mongoCollections");
 const users = mongoCollections.users;
-const uuid = require('node-uuid');
+const uuid = require('uuid');
 
 
 let exportedMethods = {
   addUser(firstName, lastName, email, password, location, jobType, field, skills){
-      
-        if (!firstName) 
+
+        if (!firstName)
             return Promise.reject("You must provide a first name");
-        if (!lastName) 
+        if (!lastName)
             return Promise.reject("You must provide a last name");
         if(!email)
             return Promise.reject("You must provide an email");
@@ -17,16 +17,16 @@ let exportedMethods = {
             return Promise.reject("You must provide a password");
         if(!location)
             return Promise.reject("You must provide a location");
-        if (!jobType) 
+        if (!jobType)
             return Promise.reject("You must provide a job type");
         if(!field)
             return Promise.reject("You must provide an array of fields");
         if(!skills)
             return Promise.reject("You must provide an array of skills");
-        
-        
-       
-        
+
+
+
+
         return users().then((userCollection) => {
             let newUser = {
                 firstName: firstName,
@@ -51,12 +51,12 @@ let exportedMethods = {
                 });
         });
     },
-      
+
 // getUserById
   getUserById(id) {
-        if (!id) 
+        if (!id)
             return Promise.reject("You must provide an id to search for");
-        
+
         return users().then((userCollection) => {
             return userCollection.findOne({_id: id});
         });
@@ -64,14 +64,14 @@ let exportedMethods = {
 
 
  getUserByEmail(email) {
-        if (!email) 
+        if (!email)
             return Promise.reject("You must provide an id to search for");
-        
+
         return users().then((userCollection) => {
             return userCollection.findOne({email: email}).then((user)=>{
               if(!user) throw "User not found";
               return user;
-              
+
             });
         });
 
@@ -85,15 +85,15 @@ let exportedMethods = {
         return userCollection.updateOne({_id:userid}, rec).then((result)=>{
           return postId;
         })
-        
+
       })
-      
+
     })
-    
+
   }*/
-  
-  
-  
+
+
+
   /*
         addComment(recipeId, poster, comment) {
         return recipesColl().then((recipeCollection) => {
@@ -108,9 +108,9 @@ let exportedMethods = {
             return recipeCollection.updateOne({ _id: recipeId }, rec).then((result) => {
               return newComment;
               });
-            
+
           });
-             
+
         });
     },
     */

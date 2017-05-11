@@ -2,7 +2,7 @@
 const mongoCollections = require("../config/mongoCollections");
 const posts = mongoCollections.posts;
 const users = mongoCollections.users;
-const uuid = require('node-uuid');
+const uuid = require('uuid');
 
 const userData = require("./user");
 
@@ -17,10 +17,10 @@ let exportedMethods = {
         }
        //console.log(p);
           return p.next();
-        
+
       });
-    
-  },  
+
+  },
   getCurrent(id){
      return  posts().then((postCollection)=>{
         var count = 0;
@@ -31,15 +31,15 @@ let exportedMethods = {
         }
        //console.log(p);
           return p.next();
-        
+
       });
-    
+
   },
   addPost(jobtitle, company, formattedLocation, snippet, url){
-      
-        if (!jobtitle) 
+
+        if (!jobtitle)
             return Promise.reject("You must provide a Job Title");
-        if (!company) 
+        if (!company)
             return Promise.reject("You must provide a company");
         if(!formattedLocation)
             return Promise.reject("You must provide a location");
@@ -47,7 +47,7 @@ let exportedMethods = {
             return Promise.reject("You must provide a description");
         if(!url)
             return Promise.reject("You must provide a url");
-        
+
         return posts().then((postCollection) => {
             let newPost = {
                 jobtitle: jobtitle,
@@ -72,15 +72,15 @@ let exportedMethods = {
     getAllPosts(){
       return posts().then((postCollection)=>{
         return postCollection.find({}).toArray();
-        
+
       });
-      
+
     },
 // getUserById
   getPostById(id) {
-        if (!id) 
+        if (!id)
             return Promise.reject("You must provide an id to search for");
-        
+
         return posts().then((postCollection) => {
             return postCollection.findOne({_id: id});
         });
@@ -88,9 +88,9 @@ let exportedMethods = {
   getFirstPost(){
     return posts().then((postCollection)=>{
       return postCollection.findOne();
-      
+
     })
-    
+
   },
   removePost(id){
       if(!id)
@@ -99,11 +99,11 @@ let exportedMethods = {
         return postCollection.deleteOne({_id:id}).then((deletionInfo)=>{
           if(deletionInfo.deletedCount === 0) throw "Could not find the document with this id to delete";
           return true;
-          
+
         });
-        
+
       });
-    
+
   },
   addLikedPost(postId, userId){
     return users().then((userCollection)=>{
@@ -113,13 +113,13 @@ let exportedMethods = {
         return userCollection.updateOne({_id:userId}, rec).then((result)=>{
           return postId;
         })
-        
+
       })
-      
+
     })
-    
+
   }
 
- 
+
 }
 module.exports = exportedMethods;

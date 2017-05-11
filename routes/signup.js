@@ -1,16 +1,16 @@
 const express = require('express');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 const router = express.Router();
 const data = require("../data");
 const userData = data.user;
 
 router.get('/', function(req, res){
   res.render("signup.handlebars");
-  
+
 });
 
 router.post("/",  function(req, res){
-  
+
   bcrypt.hash(req.body.pwd1, 10, function(err, hash) {
   var loc = {};
     loc.city = req.body.city;
@@ -18,7 +18,7 @@ router.post("/",  function(req, res){
      userData.addUser(req.body.firstName, req.body.lastName, req.body.email, hash, loc, req.body.jobType, req.body.field, req.body.skills)
      .then((user)=>{
        res.redirect("/swipe");
-       
+
      });
   });
 });
