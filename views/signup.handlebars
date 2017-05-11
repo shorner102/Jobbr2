@@ -26,8 +26,10 @@
                             <input type="password" required name="pwd2" id="pwd2" class="form-control" size="24" maxlength="32" placeholder="Confirm Password" />
                         </div><br />
                         <div class="form-group">
-                            <label for="location" class="sr-only">Location</label> 
-                            <input type="text" required name="city" id="location" class="form-control" placeholder="City" />
+                            <label for="city" class="sr-only">City</label> 
+                            <input type="text" required name="city" id="city" class="form-control" placeholder="City" />
+                        </div><br />
+                        <div class="form-group">
                             <label for="state" class="sr-only">State</label><br /> 
                             <select  name="state" id="state" class="form-control minimal" required>
                                     <option value="" selected disabled>&emsp; Choose State </option>
@@ -83,20 +85,17 @@
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
                                 </select><br />
-                            <label for="zipcode" class="sr-only">Zipcode</label>
-                            <input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="Zip Code" required pattern="\d{5}(\-\d{4})?" title="XXXXX or XXXXX-XXXX"/>
-                        </div><br />
+                        </div>
+                      
                         <div class="form-group">
-                            <label for="experience" class="sr-only">Experience</label> 
-                            <select name="expeience" id="experience"class="form-control minimal" required>
-                                <option value="" selected disabled>Experience     </option>
-                                <option value="ged">GED</option>
-                                <option value="high-school">High School</option>
-                                <option value="some-college">Some College</option>
-                                <option value="associates">Associate's Degree</option>
-                                <option value="bachelors">Bachelor's Degree</option>
-                                <option value="masters">Master's Degree</option>
-                                <option value="phd">PhD</option>
+                            <label for="jobType" class="sr-only">Job Type</label> 
+                            <select name="jobType" id="jobType"class="form-control minimal" required>
+                                <option value="" selected disabled>Job Type     </option>
+                                <option value="ged">fulltime</option>
+                                <option value="high-school">partime</option>
+                                <option value="some-college">contract</option>
+                                <option value="associates">internship</option>
+                                <option value="bachelors">temporary</option>
                             </select><br />
                         </div>
                         <div class="form-group">

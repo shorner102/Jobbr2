@@ -5,7 +5,7 @@ const uuid = require('node-uuid');
 
 
 let exportedMethods = {
-  addUser(firstName, lastName, email, password, location, skills, experience, field){
+  addUser(firstName, lastName, email, password, location, jobType, field, skills){
       
         if (!firstName) 
             return Promise.reject("You must provide a first name");
@@ -17,12 +17,14 @@ let exportedMethods = {
             return Promise.reject("You must provide a password");
         if(!location)
             return Promise.reject("You must provide a location");
-        if(!skills)
-            return Promise.reject("You must provide an array of skills");
-        if (!experience) 
-            return Promise.reject("You must provide an array of experience");
+        if (!jobType) 
+            return Promise.reject("You must provide a job type");
         if(!field)
             return Promise.reject("You must provide an array of fields");
+        if(!skills)
+            return Promise.reject("You must provide an array of skills");
+        
+        
        
         
         return users().then((userCollection) => {
@@ -32,9 +34,9 @@ let exportedMethods = {
                 email: email,
                 hashedPassword: password,
                 location: location,
-                skills: skills,
-                experience: experience,
+                jobType: jobType,
                 field: field,
+                skills: skills,
                 likedPosts: [],
                 _id: uuid.v4()
             };
