@@ -92,6 +92,11 @@ let exportedMethods = {
     })
     
   },
+  getLastPost(){
+    var post = getAllPosts().length();
+    return getPostById(post);
+  },
+    
   removePost(id){
       if(!id)
         return Promise.reject("You must provide an id to search for");
@@ -112,10 +117,8 @@ let exportedMethods = {
         var rec = {$set:userThatLiked};
         return userCollection.updateOne({_id:userId}, rec).then((result)=>{
           return postId;
-        })
-        
+        })       
       })
-      
     })
     
   }

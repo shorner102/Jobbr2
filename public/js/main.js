@@ -28,4 +28,32 @@
         });
     }
     
+    function nextM(){
+        $.ajax({
+            url: "http://localhost:3000/matches/next",
+            type: "POST",
+            data: {nextM: 'yes'},
+            success: function(returned) {
+                console.log(returned);
+            },
+            error: function(){
+                
+            }
+        });
+    }
+    
+    function prevM(){
+        $.ajax({
+           url: "http://localhost:3000/matches/prev",
+            type: "POST",
+            data: {prevM: 'yes'},
+            success: function(returned) {
+                console.log(returned);
+            },
+            error: function(){
+                
+            }
+        });
+    }
+    
 })();

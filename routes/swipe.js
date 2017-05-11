@@ -29,7 +29,10 @@ router.post('/', function(req,res){
  }
   id = id + 1;
   postData.findPost(id).then((post)=>{
-    res.render("swipe", post);
+    if(id == postData.getLastPost()){
+        res.redirect("/gone");
+    }
+        res.render("swipe", post);
     
   })
   
