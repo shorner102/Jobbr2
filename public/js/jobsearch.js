@@ -9,42 +9,57 @@
 
   /* get first 25 job postings into db */
   $.ajax({
-    type: "POST",
+    type: "GET",
     url: "/swipe/getjobs",
-    data: "",
     success: function(data) {
       /* returns us the first job posting */
-      console.log(JSON.stringify(data));
-      theResult.html(JSON.stringify(data, null, '\t'));
-      title.html(JSON.stringify(data.jobtitle));
-      company.html(JSON.stringify(data.company));
-      location.html(JSON.stringify(data.formattedLocation));
-      snippet.html(JSON.stringify(data.snippet));
-      web.attr("href",JSON.stringify(data.url));
+      title.html(data.jobtitle);
+      company.html(data.company);
+      location.html(data.formattedLocation);
+      snippet.html(data.snippet);
+      web.attr("href",data.url);
     },
     contentType: "application/json",
     dataType: "json"
   });
 
   /* if like button pressed */
-  theForm.submit(e => {
+  likeBtn.submit(e => {
     e.preventDefault();
-    const formData = {
-      jobtitle: theTitle.val(),
-    };
-
-    if(formData.jobtitle) {
     $.ajax({
       type: "POST",
-      url: "/",
-      data: JSON.stringify(formData),
+      url: "/swipe/like",
+      data: "",
       success: function(data) {
-        //console.log(JSON.stringify(data));
-        theResult.html(JSON.stringify(data, null, '\t'));
+        title.html(data.jobtitle);
+        company.html(data.company);
+        location.html(data.formattedLocation);
+        snippet.html(data.snippet);
+        web.attr("href",data.url);
       },
       contentType: "application/json",
       dataType: "json"
     });
-  }
   });
+
+  /* if dislike button pressed */
+  dislikeBtn.submit(e => {
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: "/swipe/dislike",
+      data: "",
+      success: function(data) {
+        title.html(data.jobtitle);
+        company.html(data.company);
+        location.html(data.formattedLocation);
+        snippet.html(data.snippet);
+        web.attr("href",data.url);
+      },
+      contentType: "application/json",
+      dataType: "json"
+    });
+  });
+
+
 })(jQuery); // jQuery is exported as $ and jQuery

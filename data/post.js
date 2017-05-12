@@ -35,26 +35,29 @@ let exportedMethods = {
       });
 
   },
-  addPost(jobtitle, company, formattedLocation, snippet, url){
+  addPost(item){
 
-        if (!jobtitle)
-            return Promise.reject("You must provide a Job Title");
-        if (!company)
-            return Promise.reject("You must provide a company");
-        if(!formattedLocation)
-            return Promise.reject("You must provide a location");
-        if(!snippet)
-            return Promise.reject("You must provide a description");
-        if(!url)
-            return Promise.reject("You must provide a url");
+        // if (!jobtitle)
+        //     return Promise.reject("You must provide a Job Title");
+        // if (!company)
+        //     return Promise.reject("You must provide a company");
+        // if(!formattedLocation)
+        //     return Promise.reject("You must provide a location");
+        // if(!snippet)
+        //     return Promise.reject("You must provide a description");
+        // if(!url)
+        //     return Promise.reject("You must provide a url");
+
+        if(!item)
+          return Promise.reject("You must provide an item!");
 
         return posts().then((postCollection) => {
             let newPost = {
-                jobtitle: jobtitle,
-                company: company,
-                formattedLocation: formattedLocation,
-                snippet: snippet,
-                url: url,
+                jobtitle: item.jobtitle,
+                company: item.company,
+                formattedLocation: item.formattedLocation,
+                snippet: item.snippet,
+                url: item.url,
                 timestamp: null,
                 _id: uuid.v4()
             };
@@ -65,7 +68,7 @@ let exportedMethods = {
                     return newInsertInformation.insertedId;
                 })
                 .then((newId) => {
-                    return this.getPostById(newId);
+                    return newId;
                 });
         });
     },

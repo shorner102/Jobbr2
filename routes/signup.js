@@ -10,8 +10,8 @@ router.get('/', function(req, res){
 });
 
 router.post("/",  function(req, res){
-
-  bcrypt.hash(req.body.pwd1, 10, function(err, hash) {
+  /* compare both password fields before */
+  bcrypt.hash(req.body.pwd1, null, null, function(err, hash) {
   var loc = {};
     loc.city = req.body.city;
     loc.state = req.body.state;

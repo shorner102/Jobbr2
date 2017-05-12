@@ -23,19 +23,34 @@ const handlebarsInstance = exphbs.create({
     }
 });
 
-passport.use(new Strategy({ passReqToCallback: true },
-    function(req, email, password, cb) {
+// passport.use(new Strategy({ passReqToCallback: true },
+//     function(req, email, password, cb) {
+//         data.user.getUserByEmail(email).then((user) => {
+//             bcrypt.compare(password, user.hashedPassword).then((res) => {
+//                 if (!res) {
+//                     return cb(null, false, req.flash('loginMessage', 'The username and password you entered did not match our records. Please double-check and try again.'));
+//                 }
+//                 return cb(null, user, null);
+//             });
+//         }, (error) => {
+//             return cb(null, false, req.flash('loginMessage', error));
+//         });
+//     }));
+
+    passport.use(new Strategy(
+      function(email, password, cb) {
         data.user.getUserByEmail(email).then((user) => {
-            bcrypt.compare(password, user.hashedPassword).then((res) => {
-                if (!res) {
-                    return cb(null, false, req.flash('loginMessage', 'The username and password you entered did not match our records. Please double-check and try again.'));
-                }
-                return cb(null, user);
-            });
-        }, (error) => {
-            return cb(null, false, req.flash('loginMessage', error));
-        });
-    }));
+          bcrypt.compare(password, user.hashedPassword, (err, res) => {
+            if(res === true) {
+              return cb(null, user);
+            } else {
+              return cb(null, false, {message: 'Incorrect username/password'});
+            }
+          });
+        }, (err) => {
+          return cb(null, false, {message: 'Incorrect username/password'});
+        })
+      }));
 
 passport.serializeUser(function (user, cb) {
     cb(null, user._id);

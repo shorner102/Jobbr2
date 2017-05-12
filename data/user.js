@@ -38,6 +38,7 @@ let exportedMethods = {
                 field: field,
                 skills: skills,
                 likedPosts: [],
+                queue: [],
                 _id: uuid.v4()
             };
 
@@ -75,44 +76,59 @@ let exportedMethods = {
             });
         });
 
-    }
-/*  ,
-  addLikedPost(postId, userId){
-    return users().then((userCollection)=>{
-      return this.getUserbyId(userId).then((userThatLiked)=>{
-        userThatLiked.likedPosts.push(postId);
-        var rec = {$set:userThatLiked};
-        return userCollection.updateOne({_id:userid}, rec).then((result)=>{
-          return postId;
-        })
-
-      })
-
-    })
-
-  }*/
-
-
-
-  /*
-        addComment(recipeId, poster, comment) {
-        return recipesColl().then((recipeCollection) => {
-          let newComment = {
-                  poster: poster,
-                  comment: comment,
-                  _id: uuid.v4()
-              };
-          return recipes.getRecipeById(recipeId).then((commentedRecipe) =>{
-            commentedRecipe.comments.push(newComment);
-            var rec = {$set:commentedRecipe};
-            return recipeCollection.updateOne({ _id: recipeId }, rec).then((result) => {
-              return newComment;
-              });
-
-          });
-
-        });
     },
-    */
+
+  pushPosts(jobArr, userId) {
+    if(!jobArr|| !userId)
+      return Promise.reject("No jobkey/userId provided!");
+
+    return users().then((userCollection) => {
+      return this.getUserById(userId).then((currUser) => {
+        currUser.queue = jobArr;
+        var rec = {$set:currUser};
+        return userCollection.updateOne({_id:userId}, rec).then(() => {
+          return jobArr;
+        });
+      });
+    });
+  },
+
+  popPost(userId) {
+    if(!userId)
+      return Promise.reject("No userId provided!");
+
+    return users().then((userCollection) => {
+      return this.getUserById(userId).then((currUser) => {
+        var job = currUser.queue.pop();
+        var rec = {$set:currUser};
+        return userCollection.updateOne({_id:userId}, rec).then((result) => {
+          return job;
+        });
+      });
+    });
+  },
+
+  peekPost(userId) {
+    if(!userId)
+      return Promise.reject("No userId provided!");
+
+    return users().then((userCollection) => {
+      return this.getUserById(userId).then((currUser) => {
+        return currUser.queue[currUser.queue.length-1];
+      });
+    });
+  },
+
+  jobsQueued(userId) {
+    if(!userId)
+      return Promise.reject("No userId provided!");
+
+    return users().then((userCollection) => {
+      return this.getUserById(userId).then((currUser) => {
+        return currUser.queue.length;
+      });
+    });
+  }
+
 }
 module.exports = exportedMethods;
