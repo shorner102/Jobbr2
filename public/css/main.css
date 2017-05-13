@@ -19,6 +19,31 @@ body{
     background-color: #f2f2f2;
 }
 
+.topnav {
+    background-color: #747474;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #white;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
 footer {
     font-size: 1.2rem;
     margin-top: 10px;
@@ -78,7 +103,7 @@ a:active {
 }
 
 .resume {
-    padding-bottom: 18px; 
+    padding-bottom: 18px;
 }
 
 input, select {
@@ -108,7 +133,7 @@ select {
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
   /* reset */
-  margin: 0;      
+  margin: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
