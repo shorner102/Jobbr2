@@ -24,6 +24,7 @@
     "express-session": "^1.15.2",
     "handlebars": "^4.0.6",
     "indeed-jobs-api": "^0.1.1",
+    "jquery.tabulator": "^1.12.0",
     "mongodb": "^2.2.26",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

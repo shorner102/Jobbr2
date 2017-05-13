@@ -37,17 +37,6 @@ let exportedMethods = {
   },
   addPost(item){
 
-        // if (!jobtitle)
-        //     return Promise.reject("You must provide a Job Title");
-        // if (!company)
-        //     return Promise.reject("You must provide a company");
-        // if(!formattedLocation)
-        //     return Promise.reject("You must provide a location");
-        // if(!snippet)
-        //     return Promise.reject("You must provide a description");
-        // if(!url)
-        //     return Promise.reject("You must provide a url");
-
         if(!item)
           return Promise.reject("You must provide an item!");
 
@@ -72,6 +61,7 @@ let exportedMethods = {
                 });
         });
     },
+
     getAllPosts(){
       return posts().then((postCollection)=>{
         return postCollection.find({}).toArray();
@@ -88,6 +78,7 @@ let exportedMethods = {
             return postCollection.findOne({_id: id});
         });
     },
+    
   getFirstPost(){
     return posts().then((postCollection)=>{
       return postCollection.findOne();
@@ -108,6 +99,7 @@ let exportedMethods = {
       });
 
   },
+
   addLikedPost(postId, userId){
     return users().then((userCollection)=>{
       return userData.getUserById(userId).then((userThatLiked)=>{
@@ -115,12 +107,20 @@ let exportedMethods = {
         var rec = {$set:userThatLiked};
         return userCollection.updateOne({_id:userId}, rec).then((result)=>{
           return postId;
-        })
+        });
+      });
+    });
 
-      })
+  },
 
-    })
-
+  getLikedPosts(userId){
+    return users().then((userCollection) => {
+      return userData.getUserById(userId);
+    }).then((user) => {
+      return user.likedPosts;
+    }).catch((err) => {
+      throw err;
+    });
   }
 
 

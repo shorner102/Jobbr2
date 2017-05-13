@@ -5,8 +5,8 @@ const uuid = require('uuid');
 
 
 let exportedMethods = {
-  addUser(firstName, lastName, email, password, location, jobType, field, skills){
 
+  addUser(firstName, lastName, email, password, location, jobType, skills) {
         if (!firstName)
             return Promise.reject("You must provide a first name");
         if (!lastName)
@@ -19,13 +19,8 @@ let exportedMethods = {
             return Promise.reject("You must provide a location");
         if (!jobType)
             return Promise.reject("You must provide a job type");
-        if(!field)
-            return Promise.reject("You must provide an array of fields");
         if(!skills)
             return Promise.reject("You must provide an array of skills");
-
-
-
 
         return users().then((userCollection) => {
             let newUser = {
@@ -35,8 +30,8 @@ let exportedMethods = {
                 hashedPassword: password,
                 location: location,
                 jobType: jobType,
-                field: field,
                 skills: skills,
+                lastSearch: 0,
                 likedPosts: [],
                 queue: [],
                 _id: uuid.v4()
@@ -64,7 +59,7 @@ let exportedMethods = {
     },
 
 
- getUserByEmail(email) {
+  getUserByEmail(email) {
         if (!email)
             return Promise.reject("You must provide an id to search for");
 
@@ -126,6 +121,21 @@ let exportedMethods = {
     return users().then((userCollection) => {
       return this.getUserById(userId).then((currUser) => {
         return currUser.queue.length;
+      });
+    });
+  },
+
+  incSearch(userId, num) {
+    if(!userId || !num)
+      return Promise.reject("No userId provided!");
+
+    return users().then((userCollection) => {
+      return this.getUserById(userId).then((currUser) => {
+        currUser.lastSearch += num;
+        var rec = {$set:currUser};
+        return userCollection.updateOne({_id:userId}, rec).then((result) => {
+          return num;
+        });
       });
     });
   }

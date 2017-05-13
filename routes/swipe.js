@@ -14,21 +14,19 @@ router.get('/', require('connect-ensure-login').ensureLoggedIn(), (req, res) => 
 });
 
 router.get('/getjobs', require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
-  // u = req.user;
-  // postData.getFirstPost().then((post)=>{
-  //    res.render("swipe");
-  // })
   var userAgent = req.headers['user-agent'];
   var userIP = req.ip;
   var userId = req.user._id;
-  /* if user current job queue is empty, get 25 more */
-  userData.jobsQueued(userId).then((queueLen) => {
-    if(queueLen < 1) {
+
+  userData.getUserById(userId).then((user) => {
+    if(user.queue.length < 1) {
       console.log("User's job queue empty, fetching more jobs!");
       indeed.JobSearch()
-        .WhereKeywords(["Java"])
-        .Limit(5)
-        .FromResult(0)
+        .WhereKeywords(user.skills.split(" "))
+        .WhereLocation(user.location)
+        .Limit(25)
+        .FromResult(user.lastSearch)
+        .WhereJobType(user.jobType)
         .FilterDuplicates(true)
         .UserIP(userIP)
         .UserAgent(userAgent)
@@ -37,19 +35,29 @@ router.get('/getjobs', require('connect-ensure-login').ensureLoggedIn(), (req, r
           var jobJSON = JSON.parse(jobSearch);
           var jobArray = jobJSON.results;
 
-          Promise.all(jobArray.map(postData.addPost)).then((ids) => {
-            return userData.pushPosts(ids, userId);
-
-          }).then(() => {
+          if(jobArray.length > 0) {
+            Promise.all(jobArray.map(postData.addPost)).then((ids) => {
+              return userData.pushPosts(ids, userId);
+            }).then(() => {
+              return userData.incSearch(userId, 25);
+            }).then(() => {
             return userData.peekPost(userId);
-          }).then((pid) => {
-            return postData.getPostById(pid);
-          }).then((post) => {
-            res.json(post);
-          });
+            }).then((pid) => {
+              return postData.getPostById(pid);
+            }).then((post) => {
+              res.json(post);
+            }).catch((err) => {
+              console.log(err);
+            });
+          } else {
+            res.json({
+              jobtitle: "Could not find any jobs matching your skills at this time."
+            });
+          }
         },
           function (error) {
             console.log(error);
+            return Promise.reject(error);
           });
     } else {
       console.log("Jobs in queue, no need to fetch");
@@ -59,6 +67,8 @@ router.get('/getjobs', require('connect-ensure-login').ensureLoggedIn(), (req, r
         res.json(post);
       });
     }
+  }).catch((err) => {
+    console.log(err);
   });
 
 });
@@ -85,22 +95,5 @@ router.post('/dislike', require('connect-ensure-login').ensureLoggedIn(), (req, 
     });
 });
 
-
-// router.post('/', function(req,res){
-//  if(req.body.vote == "like"){
-//    postData.findPost(id).then((post)=>{
-//     postData.addLikedPost(post._id, u._id).then((user)=>{
-//       console.log(user);
-//     });
-//    });
-//
-//  }
-//   id = id + 1;
-//   postData.findPost(id).then((post)=>{
-//     res.render("swipe", post);
-//
-//   })
-//
-// });
 
 module.exports = router;

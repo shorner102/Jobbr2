@@ -73,6 +73,8 @@ app.use(passport.session());
 app.use(require('connect-flash')());
 app.engine('handlebars', handlebarsInstance.engine);
 app.set('view engine', 'handlebars');
+app.enable('trust proxy');
+
 configRoutes(app);
 
 app.listen(3000, () => {

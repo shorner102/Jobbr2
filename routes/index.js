@@ -1,5 +1,4 @@
 const loginRoutes = require("./login");
-const privateRoutes = require("./private");
 const signupRoutes = require("./signup");
 const swipeRoutes = require("./swipe");
 const matchRoutes = require("./match");
@@ -10,7 +9,6 @@ const constructorMethod = (app) => {
 
     app.use("/login", loginRoutes);
     app.use("/signup", signupRoutes);
-    app.use("/private", privateRoutes);
     app.use("/swipe", swipeRoutes);
     app.use("/match", matchRoutes);
 

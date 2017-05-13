@@ -15,7 +15,7 @@ router.post("/",  function(req, res){
   var loc = {};
     loc.city = req.body.city;
     loc.state = req.body.state;
-     userData.addUser(req.body.firstName, req.body.lastName, req.body.email, hash, loc, req.body.jobType, req.body.field, req.body.skills)
+     userData.addUser(req.body.firstName, req.body.lastName, req.body.email, hash, loc, req.body.jobType, req.body.skills)
      .then((user)=>{
        res.redirect("/swipe");
 
