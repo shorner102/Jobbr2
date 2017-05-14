@@ -6,39 +6,52 @@
                     <div class="body">
                         <div class="row">
                             <div class="col-md-9 col-lg-9">
-                              <form class="like" method="post" id="likeBtn">
-                                <button type="submit" name="vote" value = "like" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                                </button>
-                              </form>
-                                <table class="table job-post">
-                                    <tr>
-                                        <th></th>
-                                        <th id="jobtitle">{{jobtitle}}</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Company</td>
-                                        <td id="company">{{company}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Location</td>
-                                        <td id="location">{{formattedLocation}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Job Info</td>
-                                        <td id="snippet">{{snippet}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td id="weblink"><a id="link">Apply Here!</a></td>
-                                        <td>{{url}}</td>
-                                    </tr>
-                                </table>
-                              <form class="dislike" method="post" id="dislikeBtn">
-                                <button type="submit" name="vote" value = "dislike" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-thumbs-down"></span>
-                                </button>
-                              </form>
-
+                              <table class="table swiper" style="display: table-cell;">
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+                                <tr>
+                                  <td class="table-btn">
+                                    <form class="like" method="post" id="likeBtn">
+                                      <button type="submit" name="vote" value = "like" class="btn btn-default btn-sm">
+                                          <span class="glyphicon glyphicon-thumbs-up"></span>
+                                      </button>
+                                    </form>
+                                  </td>
+                                  <td>
+                                    <table class="table job-post">
+                                        <tr>
+                                            <th></th>
+                                            <th id="jobtitle">{{jobtitle}}</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Company</td>
+                                            <td id="company">{{company}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Location</td>
+                                            <td id="location">{{formattedLocation}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Job Info</td>
+                                            <td id="snippet">{{snippet}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td id="weblink"><a id="link">Apply Here!</a></td>
+                                            <td>{{url}}</td>
+                                        </tr>
+                                    </table>
+                                  </td>
+                                  <td class="table-btn">
+                                    <form class="dislike" method="post" id="dislikeBtn">
+                                      <button type="submit" name="vote" value = "dislike" class="btn btn-default btn-sm">
+                                          <span class="glyphicon glyphicon-thumbs-down"></span>
+                                      </button>
+                                    </form>
+                                  </td>
+                                </tr>
                             </div>
                         </div>
                     </div>

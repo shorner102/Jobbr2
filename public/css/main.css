@@ -1,52 +1,83 @@
-body{
-    background-color: #e6e6e6;
-	  font-family: "Amaranth";
+.allthings {  
+    background-color: #005B5E;
+    font-family: "Helvetica", monospace, sans-serif, fantasy;
+    color: #ffb6c1;
+    margin:0px;
+    padding:0px;
+    overflow: hidden;
 }
 
+.container {
+    margin-left: 53vw;
+    
+}
+
+.form-group-l {
+}
+
+.topnav {
+    background-color: #9932CC; 
+    margin-left: calc(50%-50vw);
+    width: 100vw;
+    color: #00E5EE;
+    align-content: stretch;
+    transform: scale(1.41,1);
+}
+
+.topnav a {
+    color: #ffb6c1;
+    display: inline-block;
+    padding: .5rem 2rem;
+    text-decoration: italic;
+    font-size: 25px;
+}
+
+.topnav a:hover {
+    background-color: #005B5E;
+    color: #ffb6c1;
+}
+
+.topnav a.active {
+    background-color: #fffcfc;
+    color: white;
+}
 
 #login-form{
-    background-color: #e6e6e6;
-    position: fixed;
+    background-color: #00E5EE;
+    position: absolute;
     left: 50%;
     top: 50%;
     letter-spacing: 17.5rem;
 }
 
-/* the input */
 .form-control{
     letter-spacing: .3rem;
     text-align: right;
     background-color: #f2f2f2;
 }
 
-.topnav {
-    background-color: #747474;
-    overflow: hidden;
+.logintxt{
+    text-transform: uppercase;
+    margin-top: 3.33rem;
+    padding: 3rem;
+    margin-left: 15rem;
+    transform: scale(1.83,1.97);
+    text-shadow: -3px -3px #9932CC;
 }
 
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.topnav a:hover {
-    background-color: #white;
-    color: black;
-}
-
-.topnav a.active {
-    background-color: #4CAF50;
-    color: white;
+.logintxt2{
+    text-align: left;
+    margin-top: 20rem;
+    margin-left: 75rem;
+    text-transform: lowercase;
+    text-shadow: -2px -2px #9932CC;
 }
 
 footer {
     font-size: 1.2rem;
-    margin-top: 10px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
 
 input {
@@ -54,10 +85,10 @@ input {
 }
 
 .btn{
-	  background-color: #a6a6a6;
+    background-color: #a6a6a6;
     border: solid-thin;
     border-radius: 5px;
-	  font-family: "Arial";
+    font-family: "Arial";
     color: black;
     padding: 10px 20px;
     margin-top: 5px;
@@ -79,17 +110,14 @@ a:link {
     color: black;
 }
 
-/* visited link */
 a:visited {
     color: black
 }
 
-/* mouse over link */
 a:hover {
     color: #171919;
 }
 
-/* selected link */
 a:active {
     color: #17192F;
 }
@@ -121,18 +149,19 @@ input, select {
 
 .heading-signup {
     text-align: center;
+    text-transform: capitalize;
+    text-shadow: 0px -9px #9932CC;
+    padding-bottom: 3rem;
 }
 
 select {
-  /* styling */
   text-align: right;
-  background-color: white;
+  background-color: ##00E5EE;
   border-radius: 4px;
   display: inline-block;
   font: inherit;
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
-  /* reset */
   margin: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -177,4 +206,8 @@ select.minimal:focus {
 select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.table-btn {
+   vertical-align: middle;
 }
