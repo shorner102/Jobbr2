@@ -23,22 +23,22 @@
 }
 
 .topnav a {
-    color: #ffffff;
+    color: ##9932CC;
     display: inline-block;
     padding: .5rem 2rem;
 	text-align: center-left;
     text-decoration: italic;
     font-size: 25px;
-	border-right: 1px solid #bbb;
+	border-right: 1px solid ##9932CC;
 }
 
 .topnav a:hover {
-    background-color: #5c5c5c;
+    background-color: #9932CC;
 	color: #ffb6c1;
 }
 
 .topnav a.active {
-    background-color: #fffcfc;
+    background-color: ##9932CC;
     color: white;
 }
 
@@ -62,8 +62,8 @@
 	text-align: center;
     text-transform: uppercase;
     margin-top: 3.33rem;
+    margin-right: 70vw;
     padding: 3rem;
-	margin-left: 0;
     transform: scale(1.83,1.97);
     
 }
@@ -129,11 +129,11 @@ a:visited {
 }
 
 a:hover {
-    color: #171919;
+    color: ##9932CC;
 }
 
 a:active {
-    color: #17192F;
+    color: ##9932CC;
 }
 
 #thumbsdown{
