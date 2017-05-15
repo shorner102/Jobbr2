@@ -13,8 +13,8 @@
 
 .topnav {
     background-color: #666666; 
-    margin-left: calc(50%-50vw);
-	width: 100vw;
+    margin-left: calc(50%-50rem);
+	width: 100rem;
 	height:50px;
     color: #00E5EE;
 	overflow: hidden;
@@ -90,8 +90,8 @@
 footer {
     font-size: 1.2rem;
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    bottom: 0rem;
+    right: 0rem;
 }
 
 input {
