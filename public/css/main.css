@@ -1,40 +1,40 @@
 .allthings {  
-    background-color: #005B5E;
-    font-family: "Helvetica", monospace, sans-serif, fantasy;
-    color: #ffb6c1;
+    background-color: #dcdcdc;
+    font-family: "Helvetica";
+    color: black;
     margin:0px;
     padding:0px;
     overflow: hidden;
 }
 
 .container {
-    margin-left: 53vw;
-    
-}
-
-.form-group-l {
+    margin-left: 53vw;    
 }
 
 .topnav {
-    background-color: #9932CC; 
+    background-color: #666666; 
     margin-left: calc(50%-50vw);
-    width: 100vw;
+	width: 100vw;
+	height:50px;
     color: #00E5EE;
-    align-content: stretch;
+	overflow: hidden;
     transform: scale(1.41,1);
+	border-bottom: 3px solid #9932CC;
 }
 
 .topnav a {
-    color: #ffb6c1;
+    color: #ffffff;
     display: inline-block;
     padding: .5rem 2rem;
+	text-align: center-left;
     text-decoration: italic;
     font-size: 25px;
+	border-right: 1px solid #bbb;
 }
 
 .topnav a:hover {
-    background-color: #005B5E;
-    color: #ffb6c1;
+    background-color: #5c5c5c;
+	color: #ffb6c1;
 }
 
 .topnav a.active {
@@ -42,8 +42,8 @@
     color: white;
 }
 
+
 #login-form{
-    background-color: #00E5EE;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -57,20 +57,34 @@
 }
 
 .logintxt{
+	font-family: "Amaranth";
+	color: #9932CC;
+	text-align: center;
     text-transform: uppercase;
     margin-top: 3.33rem;
     padding: 3rem;
-    margin-left: 15rem;
+	margin-left: 0;
     transform: scale(1.83,1.97);
-    text-shadow: -3px -3px #9932CC;
+    
 }
 
 .logintxt2{
-    text-align: left;
+    text-align: center;
     margin-top: 20rem;
     margin-left: 75rem;
     text-transform: lowercase;
-    text-shadow: -2px -2px #9932CC;
+    
+}
+
+.heading-signup{
+	font-family: "Amaranth";
+	color: #9932CC;
+	text-align: center;
+    text-transform: uppercase;
+    margin-top: 3.33rem;
+    padding: 3rem;
+	margin-left: 0;
+    transform: scale(1.83,1.97);
 }
 
 footer {
@@ -150,13 +164,11 @@ input, select {
 .heading-signup {
     text-align: center;
     text-transform: capitalize;
-    text-shadow: 0px -9px #9932CC;
     padding-bottom: 3rem;
 }
 
 select {
   text-align: right;
-  background-color: ##00E5EE;
   border-radius: 4px;
   display: inline-block;
   font: inherit;
