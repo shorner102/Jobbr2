@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const flash = require('connect-flash');
 const passport = require('passport');
 const Strategy = require('passport-local');
 const bcrypt = require('bcrypt-nodejs');
@@ -44,11 +45,11 @@ const handlebarsInstance = exphbs.create({
             if(res === true) {
               return cb(null, user);
             } else {
-              return cb(null, false, {message: 'Incorrect username/password'});
+              return cb(null, false, req.flash('loginMessage', 'The username and password you entered did not match our records. Please double-check and try again.'));
             }
           });
         }, (err) => {
-          return cb(null, false, {message: 'Incorrect username/password'});
+          return cb(null, false, req.flash('loginMessage', error));
         })
       }));
 
@@ -64,16 +65,23 @@ passport.deserializeUser(function(id, cb) {
     });
 });
 
-app.use("/public", static);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(require('cookie-parser')());
 app.use(require('express-session')({secret: 'keyboard cat', resave: false, saveUninitialized: false}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(require('connect-flash')());
+app.use(flash());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
+app.use("/public", static);
 app.engine('handlebars', handlebarsInstance.engine);
 app.set('view engine', 'handlebars');
 app.enable('trust proxy');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 configRoutes(app);
 

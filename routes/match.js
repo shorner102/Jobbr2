@@ -5,7 +5,7 @@ const data = require("../data");
 const postData = data.post;
 const userData = data.user;
 
-router.get('/', require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
+router.get('/', require('connect-ensure-login').ensureLoggedIn('/'), (req, res) => {
   res.render("match");
 });
 

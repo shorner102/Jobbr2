@@ -9,7 +9,7 @@ const userData = data.user;
 
 
 
-router.get('/', require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
+router.get('/', require('connect-ensure-login').ensureLoggedIn('/'), (req, res) => {
   res.render("swipe", {jobtitle: "Fetching Jobs, Please Wait.."});
 });
 
@@ -20,7 +20,6 @@ router.get('/getjobs', require('connect-ensure-login').ensureLoggedIn(), (req, r
 
   userData.getUserById(userId).then((user) => {
     if(user.queue.length < 1) {
-      console.log("User's job queue empty, fetching more jobs!");
       indeed.JobSearch()
         .WhereKeywords(user.skills.split(" "))
         .WhereLocation(user.location)
@@ -60,7 +59,6 @@ router.get('/getjobs', require('connect-ensure-login').ensureLoggedIn(), (req, r
             return Promise.reject(error);
           });
     } else {
-      console.log("Jobs in queue, no need to fetch");
       userData.peekPost(userId).then((pid) => {
         return postData.getPostById(pid);
       }).then((post) => {
