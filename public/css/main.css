@@ -12,6 +12,10 @@
     margin-left: 50vw;
 }
 
+h2.hidden {
+    visibility: hidden;
+}
+
 .topnav {
     background-color: #666666; 
     /*margin-left: -20.3vw;*/
